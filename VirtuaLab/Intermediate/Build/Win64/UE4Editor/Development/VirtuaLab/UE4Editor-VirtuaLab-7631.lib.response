@@ -1,0 +1,16 @@
+/NOLOGO
+/errorReport:prompt
+/MACHINE:x64
+/SUBSYSTEM:WINDOWS
+/DEF
+/NAME:"UE4Editor-VirtuaLab-7631.dll"
+/IGNORE:4221
+/NODEFAULTLIB
+"C:\Users\yagoc\Documents\GitHub\Virtual-Lab\VirtuaLab\Intermediate\Build\Win64\VirtuaLabEditor\Development\Engine\SharedPCH.Engine.h.obj"
+"C:\Users\yagoc\Documents\GitHub\Virtual-Lab\VirtuaLab\Intermediate\Build\Win64\UE4Editor\Development\VirtuaLab\Grabber.cpp.obj"
+"C:\Users\yagoc\Documents\GitHub\Virtual-Lab\VirtuaLab\Intermediate\Build\Win64\UE4Editor\Development\VirtuaLab\VirtuaLab.cpp.obj"
+"C:\Users\yagoc\Documents\GitHub\Virtual-Lab\VirtuaLab\Intermediate\Build\Win64\UE4Editor\Development\VirtuaLab\Grabber.gen.cpp.obj"
+"C:\Users\yagoc\Documents\GitHub\Virtual-Lab\VirtuaLab\Intermediate\Build\Win64\UE4Editor\Development\VirtuaLab\VirtuaLab.init.gen.cpp.obj"
+"C:\Users\yagoc\Documents\GitHub\Virtual-Lab\VirtuaLab\Intermediate\Build\Win64\UE4Editor\Development\VirtuaLab\Default.rc2.res"
+/OUT:"C:\Users\yagoc\Documents\GitHub\Virtual-Lab\VirtuaLab\Intermediate\Build\Win64\UE4Editor\Development\VirtuaLab\UE4Editor-VirtuaLab-7631.lib"
+/INCLUDE:IMPLEMENT_MODULE_VirtuaLab

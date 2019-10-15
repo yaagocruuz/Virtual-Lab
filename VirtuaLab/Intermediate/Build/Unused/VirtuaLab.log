@@ -1,0 +1,17 @@
+﻿  Using 'git status' to determine working set for adaptive non-unity build (C:\Users\yagoc\Documents\GitHub\Virtual-Lab).
+  Creating makefile for VirtuaLabEditor (ini files are newer than makefile)
+  Parsing headers for VirtuaLabEditor
+    Running UnrealHeaderTool "C:\Users\yagoc\Documents\GitHub\Virtual-Lab\VirtuaLab\VirtuaLab.uproject" "C:\Users\yagoc\Documents\GitHub\Virtual-Lab\VirtuaLab\Intermediate\Build\Win64\VirtuaLabEditor\Development\VirtuaLabEditor.uhtmanifest" -LogCmds="loginit warning, logexit warning, logdatabase error" -Unattended -WarningsAsErrors -installed
+  Reflection code generated for VirtuaLabEditor in 6,9918955 seconds
+  Using Visual Studio 2017 14.16.27023 toolchain (C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.16.27023) and Windows 10.0.18362.0 SDK (C:\Program Files (x86)\Windows Kits\10).
+  Building 6 actions with 4 processes...
+    [1/6] VirtuaLab.init.gen.cpp
+    [2/6] PlayEffect.cpp
+    [3/6] PlayEffect.gen.cpp
+    [4/6] UE4Editor-VirtuaLab-0006.lib
+       Criando biblioteca C:\Users\yagoc\Documents\GitHub\Virtual-Lab\VirtuaLab\Intermediate\Build\Win64\UE4Editor\Development\VirtuaLab\UE4Editor-VirtuaLab-0006.lib e objeto C:\Users\yagoc\Documents\GitHub\Virtual-Lab\VirtuaLab\Intermediate\Build\Win64\UE4Editor\Development\VirtuaLab\UE4Editor-VirtuaLab-0006.exp
+    [5/6] UE4Editor-VirtuaLab-0006.dll
+       Criando biblioteca C:\Users\yagoc\Documents\GitHub\Virtual-Lab\VirtuaLab\Intermediate\Build\Win64\UE4Editor\Development\VirtuaLab\UE4Editor-VirtuaLab-0006.suppressed.lib e objeto C:\Users\yagoc\Documents\GitHub\Virtual-Lab\VirtuaLab\Intermediate\Build\Win64\UE4Editor\Development\VirtuaLab\UE4Editor-VirtuaLab-0006.suppressed.exp
+    [6/6] VirtuaLabEditor.target
+  Total time in Parallel executor: 7,56 seconds
+  Total execution time: 17,37 seconds
