@@ -1,3 +1,0 @@
-C:\Users\yagoc\Documents\GitHub\Virtual-Lab\VirtuaLab\Source\VirtuaLab\VirtuaLab.Build.cs
-C:\Users\yagoc\Documents\GitHub\Virtual-Lab\VirtuaLab\Source\VirtuaLab.Target.cs
-C:\Users\yagoc\Documents\GitHub\Virtual-Lab\VirtuaLab\Source\VirtuaLabEditor.Target.cs

@@ -1,2 +1,0 @@
-C:\Users\yagoc\Documents\GitHub\Virtual-Lab\VirtuaLab\Intermediate\Build\Win64\UE4Editor\Development\VirtuaLab\Definitions.VirtuaLab.h
-c:\users\yagoc\documents\github\virtual-lab\virtualab\source\virtualab\VirtuaLab.h
