@@ -25,6 +25,15 @@ public:
 	// Called every frame
 	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
 
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
+		bool isSmoke;
+
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
+		bool isColorChange;
+
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
+		bool isFire = true;
+
 private:
 	UPROPERTY(EditAnywhere)
 		ATriggerVolume *PressurePlate;
@@ -32,12 +41,4 @@ private:
 	UPROPERTY(EditAnywhere)
 		int32 Mixture;
 
-	UPROPERTY(VisibleAnywhere)
-		bool isSmoke;
-
-	UPROPERTY(VisibleAnywhere)
-		bool isColorChange;
-
-	UPROPERTY(VisibleAnywhere)
-		bool isFire;
 };
