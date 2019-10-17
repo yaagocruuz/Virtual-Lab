@@ -44,6 +44,7 @@ int32 UPlayEffect::ShouldActivateEffect()
 	TArray<AActor*> OverlappingActors;
 	PressurePlate->GetOverlappingActors(OUT OverlappingActors);
 
+	//Tenho que criar essa classe que vai ser atribuida a todos os frascos. Sendo que cada frasco vai ter o valor da sua mistura salva nele.
 	//Classe* = Element
 
 	for (auto* Actor : OverlappingActors)
