@@ -2,6 +2,10 @@
 
 
 #include "PlayEffect.h"
+#include "GameFramework/Actor.h"
+#include "Engine/World.h"
+#include "EngineUtils.h"
+
 
 // Sets default values for this component's properties
 UPlayEffect::UPlayEffect()
@@ -29,10 +33,24 @@ void UPlayEffect::TickComponent(float DeltaTime, ELevelTick TickType, FActorComp
 {
 	Super::TickComponent(DeltaTime, TickType, ThisTickFunction);
 
-	// switch (nao sei se é viavel, mas se for, melhor do que usar if e else)
-	// case 1: mistura que pega fogo, desabilita todos os outros elementos que não são dessa mistura 
-				// e checa se no trigger existe todos os elementos,
-				// se tiver, "isFire = true;" e destrói elementos da mistura 1;
+	//if (ShouldActivateEffect === ActiveMixture->TotalAmountOfElements()) { [AQUI TEM QUE SETAR A VARIAVEL BOOL PRA CADA EFEITO DINAMICAMENTE] }
 }
 
 
+int32 UPlayEffect::ShouldActivateEffect()
+{
+	int32 MixtureCount = 0;
+
+	TArray<AActor*> OverlappingActors;
+	PressurePlate->GetOverlappingActors(OUT OverlappingActors);
+
+	//Classe* = Element
+
+	for (auto* Actor : OverlappingActors)
+	{
+		// Element = *Actor;
+		//if (Element->GetMixture() === ActiveMixture) { MixtureCount++ }
+	}
+
+	return MixtureCount;
+}
