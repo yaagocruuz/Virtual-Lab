@@ -13,8 +13,6 @@ UPlayEffect::UPlayEffect()
 	// Set this component to be initialized when the game starts, and to be ticked every frame.  You can turn these features
 	// off to improve performance if you don't need them.
 	PrimaryComponentTick.bCanEverTick = true;
-
-	// ...
 }
 
 
@@ -28,19 +26,25 @@ void UPlayEffect::BeginPlay()
 	
 }
 
-
 // Called every frame
 void UPlayEffect::TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction)
 {
 	Super::TickComponent(DeltaTime, TickType, ThisTickFunction);
 
-	if (CorrectElementsCount() == 1) {
-		setIsFire(true);
+	if (ActiveMixtureId == 1) {
+		if (CorrectElementsCount() == Mixture1Qty) {
+			setIsFire(true);
+			setActiveMixtureId(2);
+		}
 	}
+	else if (ActiveMixtureId == 2) {
+		if (CorrectElementsCount() == Mixture2Qty) {
+			setIsSmoke(true);
+			setActiveMixtureId(3);
+		}
+	}
+
 }
-
-
-
 
 int32 UPlayEffect::CorrectElementsCount()
 {
@@ -57,6 +61,7 @@ int32 UPlayEffect::CorrectElementsCount()
 		
 		if (ElementRefId == ActiveMixtureId) {
 			MixtureCount++;
+			Actor->Destroy();
 		}
 		else {
 			MixtureCount--;

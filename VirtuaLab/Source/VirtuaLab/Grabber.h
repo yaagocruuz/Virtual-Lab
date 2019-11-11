@@ -33,10 +33,12 @@ private:
 	UInputComponent* InputComponent = nullptr;
 
 	// Ray-cast and grab what's in reach.
-	void Grab();
+	UFUNCTION(BlueprintCallable)
+		void Grab();
 
 	// Called when grab is released
-	void Release();
+	UFUNCTION(BlueprintCallable)
+		void Release();
 
 	// Find (assumed) attached physics handle component
 	void FindPhysicsHandleComponent();

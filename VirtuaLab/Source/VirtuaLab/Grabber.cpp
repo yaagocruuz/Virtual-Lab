@@ -124,4 +124,3 @@ FTwoVectors UGrabber::GetLineTracePoints() const
 	FVector EndLocation = StartLocation + PlayerViewPointRotation.Vector() * Reach;
 	return FTwoVectors(StartLocation, EndLocation);
 }
-
