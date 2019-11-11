@@ -21,12 +21,6 @@ protected:
 	// Called when the game starts
 	virtual void BeginPlay() override;
 
-public:	
-	// Called every frame
-	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
-
-	int32 ShouldActivateEffect();
-
 	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 		bool isSmoke;
 
@@ -34,13 +28,28 @@ public:
 		bool isColorChange;
 
 	UPROPERTY(BlueprintReadWrite, EditAnywhere)
-		bool isFire = true;
+		bool isFire;
 
-private:
-	UPROPERTY(EditAnywhere)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 		ATriggerVolume *PressurePlate;
 
-	UPROPERTY(EditAnywhere)
-		int32 ActiveMixture;
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
+		int ActiveMixtureId;
 
+	UPROPERTY(EditAnywhere)
+		int Mixture1Qty;
+
+	UPROPERTY(EditAnywhere)
+		int Mixture2Qty;
+
+public:	
+	// Called every frame
+	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
+
+	// Methods
+	int32 CorrectElementsCount();
+	void setIsFire(bool newIsFire);
+	void setIsSmoke(bool newIsSmoke);
+	void setIsColorChange(bool newIsColorChange);
+	void setActiveMixtureId(int newActiveMixtureId);
 };

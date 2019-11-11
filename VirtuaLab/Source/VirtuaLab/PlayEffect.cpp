@@ -5,7 +5,7 @@
 #include "GameFramework/Actor.h"
 #include "Engine/World.h"
 #include "EngineUtils.h"
-
+#include "Element.h"
 
 // Sets default values for this component's properties
 UPlayEffect::UPlayEffect()
@@ -23,7 +23,8 @@ void UPlayEffect::BeginPlay()
 {
 	Super::BeginPlay();
 
-	// ...
+	// Set the active mixture to 1 every time the game is restarted
+	setActiveMixtureId(1);
 	
 }
 
@@ -33,25 +34,50 @@ void UPlayEffect::TickComponent(float DeltaTime, ELevelTick TickType, FActorComp
 {
 	Super::TickComponent(DeltaTime, TickType, ThisTickFunction);
 
-	//if (ShouldActivateEffect === ActiveMixture->TotalAmountOfElements()) { [AQUI TEM QUE SETAR A VARIAVEL BOOL PRA CADA EFEITO DINAMICAMENTE] }
+	if (CorrectElementsCount() == 1) {
+		setIsFire(true);
+	}
 }
 
 
-int32 UPlayEffect::ShouldActivateEffect()
+
+
+int32 UPlayEffect::CorrectElementsCount()
 {
 	int32 MixtureCount = 0;
 
 	TArray<AActor*> OverlappingActors;
 	PressurePlate->GetOverlappingActors(OUT OverlappingActors);
 
-	//Tenho que criar essa classe que vai ser atribuida a todos os frascos. Sendo que cada frasco vai ter o valor da sua mistura salva nele.
-	//Classe* = Element
-
 	for (auto* Actor : OverlappingActors)
 	{
-		// Element = *Actor;
-		//if (Element->GetMixture() === ActiveMixture) { MixtureCount++ }
+		int ElementRefId = Actor->FindComponentByClass<UElement>()->GetElementId();
+		///UE_LOG(LogTemp, Error, TEXT("%s on pressure plate"), *Actor->GetName());
+		///UE_LOG(LogTemp, Error, TEXT("ELEMENT ID = %d"), ElementRefId);
+		
+		if (ElementRefId == ActiveMixtureId) {
+			MixtureCount++;
+		}
+		else {
+			MixtureCount--;
+		}
 	}
 
 	return MixtureCount;
+}
+
+void UPlayEffect::setIsFire(bool newIsFire) {
+	this->isFire = newIsFire;
+}
+
+void UPlayEffect::setIsSmoke(bool newIsSmoke) {
+	this->isSmoke = newIsSmoke;
+}
+
+void UPlayEffect::setIsColorChange(bool newIsColorChange) {
+	this->isColorChange = newIsColorChange;
+}
+
+void UPlayEffect::setActiveMixtureId(int newActiveMixtureId) {
+	this->ActiveMixtureId = newActiveMixtureId;
 }
