@@ -23,6 +23,11 @@ void UPlayEffect::BeginPlay()
 
 	// Set the active mixture to 1 every time the game is restarted
 	setActiveMixtureId(1);
+	Mixture1Qty = 2;
+	Mixture2Qty = 2;
+
+	setIsFire(false);
+	setIsSmoke(false);
 	
 }
 
@@ -31,14 +36,16 @@ void UPlayEffect::TickComponent(float DeltaTime, ELevelTick TickType, FActorComp
 {
 	Super::TickComponent(DeltaTime, TickType, ThisTickFunction);
 
+	int32 ElementsInPlace = CorrectElementsCount();
+
 	if (ActiveMixtureId == 1) {
-		if (CorrectElementsCount() == Mixture1Qty) {
+		if (ElementsInPlace == Mixture1Qty) {
 			setIsFire(true);
 			setActiveMixtureId(2);
 		}
 	}
 	else if (ActiveMixtureId == 2) {
-		if (CorrectElementsCount() == Mixture2Qty) {
+		if (ElementsInPlace == Mixture2Qty) {
 			setIsSmoke(true);
 			setActiveMixtureId(3);
 		}
@@ -46,25 +53,34 @@ void UPlayEffect::TickComponent(float DeltaTime, ELevelTick TickType, FActorComp
 
 }
 
-int32 UPlayEffect::CorrectElementsCount()
+int UPlayEffect::CorrectElementsCount()
 {
-	int32 MixtureCount = 0;
+	int MixtureCount = 0;
 
+	TArray<AActor*> EmptyArray;
+	EmptyArray.Empty();
+	
 	TArray<AActor*> OverlappingActors;
 	PressurePlate->GetOverlappingActors(OUT OverlappingActors);
 
-	for (auto* Actor : OverlappingActors)
-	{
-		int ElementRefId = Actor->FindComponentByClass<UElement>()->GetElementId();
-		///UE_LOG(LogTemp, Error, TEXT("%s on pressure plate"), *Actor->GetName());
-		///UE_LOG(LogTemp, Error, TEXT("ELEMENT ID = %d"), ElementRefId);
+	if (OverlappingActors == EmptyArray) {
+		return MixtureCount;
+	} else {
+		for (auto* Actor : OverlappingActors)
+		{
+			int ElementRefId = Actor->FindComponentByClass<UElement>()->GetElementId();
+			UE_LOG(LogTemp, Error, TEXT("%s on pressure plate"), *Actor->GetName());
+			UE_LOG(LogTemp, Error, TEXT("ELEMENT ID = %d"), ElementRefId);
+			UE_LOG(LogTemp, Error, TEXT("ACTIVE MIXTURE ID = %d"), ActiveMixtureId);
+
 		
-		if (ElementRefId == ActiveMixtureId) {
-			MixtureCount++;
-			Actor->Destroy();
-		}
-		else {
-			MixtureCount--;
+			if (ElementRefId == ActiveMixtureId) {
+				MixtureCount++;
+				//Actor->Destroy();
+			}
+			else {
+				MixtureCount--;
+			}
 		}
 	}
 

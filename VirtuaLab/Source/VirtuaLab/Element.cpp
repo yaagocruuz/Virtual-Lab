@@ -17,8 +17,6 @@ UElement::UElement()
 void UElement::BeginPlay()
 {
 	Super::BeginPlay();
-
-	this->SetElementId(1);
 	
 }
 

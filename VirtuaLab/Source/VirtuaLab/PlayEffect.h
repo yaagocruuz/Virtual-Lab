@@ -47,7 +47,7 @@ public:
 	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
 
 	// Methods
-	int32 CorrectElementsCount();
+	int CorrectElementsCount();
 	void setIsFire(bool newIsFire);
 	void setIsSmoke(bool newIsSmoke);
 	void setIsColorChange(bool newIsColorChange);
